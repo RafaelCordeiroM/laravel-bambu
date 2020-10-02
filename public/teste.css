@@ -1,0 +1,145 @@
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+:root {
+    --black: #3a3a3a;
+    --white: #fff;
+    --green: #49b293;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.author-archive {
+    padding: 1.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 a {
+    transition: all 0.1s;
+}
+
+h1 a:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+
+/* FILTERS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.filters {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filters * {
+    display: inline-block;
+}
+
+.filters label {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.filters label:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+
+/* FILTERED ELEMENTS (products)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.products {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.products .product {
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.products .product-title {
+    font-size: 1.3rem;
+}
+
+.products .product-title:hover {
+    text-decoration: underline;
+}
+
+.products figcaption {
+    padding: 1rem;
+}
+
+.products .product-categories {
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+}
+
+.products .product-categories * {
+    display: inline-block;
+}
+
+.products .product-categories li {
+    margin-bottom: 0.2rem;
+}
+
+.products .product-categories a {
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid;
+    line-height: normal;
+    transition: all 0.1s;
+}
+
+.products .product-categories a:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+
+/* FILTERING RULES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+[value="all"]:checked~.filters [for="all"],
+[value="bambumosso"]:checked~.filters [for="bambumosso"],
+[value="bambusa5hastes"]:checked~.filters [for="bambusa5hastes"],
+[value="bambusa7hastes"]:checked~.filters [for="bambusa7hastes"] {
+    background: var(--green);
+    color: var(--white);
+}
+
+[value="All"]:checked~.products [data-category] {
+    display: block;
+}
+
+[value="Todos"]:checked~.products .product:not([data-category~="all"]),
+[value="Bambu Mossô"]:checked~.products .product:not([data-category~="bambumosso"]),
+[value="Bambusa 5 Hastes"]:checked~.products .product:not([data-category~="bambusa5hastes"]),
+[value="Bambusa 7 Hastes"]:checked~.products .product:not([data-category~="bambusa7hastes"]) {
+    display: none;
+}

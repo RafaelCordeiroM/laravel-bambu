@@ -1,0 +1,59 @@
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+input[type="radio"].filter {
+    display: none;
+}
+
+:root {
+    --black: #3a3a3a;
+    --white: #fff;
+    --green: #49b293;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filters * {
+    display: inline-block;
+}
+
+.filters label {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.filters label:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+
+/* FILTERING RULES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+[value="all"]:checked~.filters [for="all"],
+[value="bambumosso"]:checked~.filters [for="bambumosso"],
+[value="bambusa5hastes"]:checked~.filters [for="bambusa5hastes"],
+[value="bambusa7hastes"]:checked~.filters [for="bambusa7hastes"] {
+    background: var(--green);
+    color: var(--white);
+}
+
+[value="All"]:checked~.products [data-category] {
+    display: block;
+}
+
+[value="Todos"]:checked~.products .product:not([data-category~="all"]),
+[value="Bambu Mossô"]:checked~.products .product:not([data-category~="bambumosso"]),
+[value="Bambusa 5 Hastes"]:checked~.products .product:not([data-category~="bambusa5hastes"]),
+[value="Bambusa 7 Hastes"]:checked~.products .product:not([data-category~="bambusa7hastes"]) {
+    display: none;
+}
